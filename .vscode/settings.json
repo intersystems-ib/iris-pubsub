@@ -1,0 +1,13 @@
+{
+    "objectscript.conn": {
+        "username": "superuser",
+        "password": "SYS",
+        "active": true,
+        "ns": "USER",
+        "host": "localhost",
+        "port": 52773,
+        "docker-compose": {
+            "service": "iris"
+        }
+    }
+}

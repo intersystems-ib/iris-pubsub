@@ -1,0 +1,16 @@
+    // unexpire passwords for dev mode
+    new $namespace
+    set $namespace = "%SYS"
+    do ##class(Security.Users).UnExpireUserPasswords("*")
+
+    set $namespace = "USER"
+    
+    // load & compile source code
+    set sc = $SYSTEM.OBJ.LoadDir("/opt/irisapp/src", "ck", .errorlog, 1)
+
+    // auto start interop production
+    set production = "dc.PubSub.Interop.Production"
+    set ^Ens.Configuration("csp","LastProduction") = production
+    do ##class(Ens.Director).SetAutoStart(production)
+
+    halt
