@@ -48,3 +48,23 @@ zw ^zlog
 ^zlog(3)="[dc.PubSub.Test.Simple:Subscriber] Received: {""patientId"":""12TFFFHM88"",""data"":""dummy999""}"
 ^zlog(4)="[dc.PubSub.Test.Simple:Sub2] Received: {""patientId"":""12TFFFHM88"",""data"":""dummy999""}"
 ```
+
+
+# Installation
+
+1) Install [IPM package manager](https://github.com/intersystems/ipm) if you don't have already done it.
+2) Create a new namespace (e.g. `TEST`). `iris-pubsub` needs to be installed in a new namespace because it runs its own interoperability production.
+3) Switch to your new namespace and run:
+
+```
+TEST> zpm
+zpm:TEST> install iris-pubsub
+```
+
+4) Setup how many partitions (Business Service - Business Operation) you want to run:
+
+```
+TEST> do ##class(dc.PubSub.API).AddPartitions(3)
+```
+
+And you are done, check the **QuickStart** section for some examples.
