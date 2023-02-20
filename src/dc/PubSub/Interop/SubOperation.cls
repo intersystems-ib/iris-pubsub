@@ -9,8 +9,9 @@ Method DeliverToSubscriber(pRequest As dc.PubSub.Interop.SubMsgReq, Output pResp
 {
     set ret = $$$OK
     new $namespace
+    set originalNs = $namespace
 
-    try {
+    try {    
         set protocol = pRequest.Subscription.Protocol
         if protocol="ClassMethod" {
             set ns = $piece(pRequest.Subscription.Endpoint, ":", 1)
@@ -18,10 +19,12 @@ Method DeliverToSubscriber(pRequest As dc.PubSub.Interop.SubMsgReq, Output pResp
             set classmethod = $piece(pRequest.Subscription.Endpoint, ":", 3)
             set $namespace = ns
             do $classmethod(classname, classmethod, pRequest.Payload)
+            set $namespace = originalNs
         }
 
     } catch ex {
         set ret = ex.AsStatus()
+        set $namespace = originalNs
     }
     quit ret
 }

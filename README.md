@@ -24,6 +24,7 @@ set topic = ##class(dc.PubSub.API).CreateTopic("simple/topic", { "PartitionKey":
 
 * Create some subscribers to your topic.
 * These subscribers are class methods that will be called each time a message is published in the topic you created.
+* The endpoint to specify your subscriber goes like this: `<namespace>:<package>:<classmethod>`
 
 ```objectscript
 do ##class(dc.PubSub.API).CreateSubscription("simple/topic", { "Protocol": "ClassMethod", "Endpoint": "USER:dc.PubSub.Test.Simple:Subscriber"})
