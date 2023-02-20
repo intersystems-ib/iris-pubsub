@@ -6,7 +6,7 @@
     set $namespace = "USER"
     
     // load & compile source code
-    set sc = $SYSTEM.OBJ.LoadDir("/opt/irisapp/src", "ck", .errorlog, 1)
+    zpm "load -verbose /opt/irisapp/"
 
     // auto start interop production
     set production = "dc.PubSub.Interop.Production"

@@ -69,12 +69,12 @@ ClassMethod AddPartitions(pNewPartitions As %Integer)
 
 ClassMethod GetParamValue(pParamName As %String) As %String
 {
-    return ##class(Ens.Util.FunctionSet).Lookup(..#ParameterLUT,pParamName,"","")
+    return $get(^dc.PubSub.Params(pParamName))
 }
 
-ClassMethod SetParamValue(pParamName As %String, pValue As %String) As %String
+ClassMethod SetParamValue(pParamName As %String, pValue As %String)
 {
-    do ##class(Ens.Util.LookupTable).%UpdateValue(..#ParameterLUT,pParamName,pValue)
+    set ^dc.PubSub.Params(pParamName) = pValue
 }
 
 /// WARNING

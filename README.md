@@ -13,12 +13,18 @@ docker-compose up -d
 do ##class(dc.PubSub.API).AddPartitions(3)
 ```
 
-* Create a topic
+* Create a topic:
+    * You will create a topic called `simple/topic`. 
+    * Optionally, you can add a `PartitionKey` in your topic. This allows you to define which field, in a message published in your topic, will be used to determine the partition that will handle the message. 
+    * All messages in same partition are processed in order.
+
 ```objectscript
 set topic = ##class(dc.PubSub.API).CreateTopic("simple/topic", { "PartitionKey": "patientId" })
 ```
 
-* Create some subscribers
+* Create some subscribers to your topic.
+* These subscribers are class methods that will be called each time a message is published in the topic you created.
+
 ```objectscript
 do ##class(dc.PubSub.API).CreateSubscription("simple/topic", { "Protocol": "ClassMethod", "Endpoint": "USER:dc.PubSub.Test.Simple:Subscriber"})
 do ##class(dc.PubSub.API).CreateSubscription("simple/topic", { "Protocol": "ClassMethod", "Endpoint": "USER:dc.PubSub.Test.Simple:Sub2"})

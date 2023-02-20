@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+  <Document name="iris-pubsub.ZPM">
+    <Module>
+      <Name>iris-pubsub</Name>
+      <Version>0.0.1</Version>
+      <Description>Simple local Publisher-Subscriber utility for InterSystems IRIS</Description>
+      <Keywords>iris pubsub</Keywords>
+      <Author>
+        <Person>InterSystems Iberia</Person>
+        <Organization>InterSystems</Organization>
+        <CopyrightDate>2023</CopyrightDate>
+        <License>MIT</License>
+      </Author>
+      <Packaging>module</Packaging>
+      <SourcesRoot>src</SourcesRoot>
+      <Resource Name="dc.PubSub.PKG"/>
+      <SystemRequirements Interoperability="enabled" />
+    </Module>
+  </Document>
+</Export>
