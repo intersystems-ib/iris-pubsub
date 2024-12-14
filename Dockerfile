@@ -1,4 +1,4 @@
-ARG IMAGE=intersystemsdc/irishealth-community:2022.2.0.368.0-zpm
+ARG IMAGE=intersystemsdc/irishealth-community:latest
 FROM $IMAGE
 
 USER root
